@@ -1,0 +1,23 @@
+[workspace]
+authors = ["Wolf Vollprecht <w.vollprecht@gmail.com>"]
+channels = ["conda-forge"]
+name = "calculatorbuilder"
+platforms = ["osx-arm64"]
+version = "0.1.0"
+preview = ["pixi-build"]
+
+[tasks]
+start = "$CONDA_PREFIX/examples/designer/calculatorbuilder/calculatorbuilder.app/Contents/MacOS/calculatorbuilder"
+
+[dependencies]
+calculatorbuilder = { path = "." }
+
+[package.build]
+backend = { name = "pixi-build-cmake", version = "0.1.*" }
+channels = [
+  "https://prefix.dev/pixi-build-backends",
+  "https://prefix.dev/conda-forge",
+]
+
+[package.host-dependencies]
+qt6-main = "*"
